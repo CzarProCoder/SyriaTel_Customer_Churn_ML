@@ -1,3 +1,19 @@
+# SyriaTel Customer Churn ML Project
+
+![customer_churn_prediction](images/customer_churn_prediction.png)
+
+
+**Project by**:
+
+- **Name**:  Julius Kinyua Njeri
+- **Email**: juliusczar36@gmail.com
+- **Date**: June 2024
+- **Github Link**: https://github.com/CzarProCoder/SyriaTel_Customer_Churn_ML
+- **LinkedIN**: https://www.linkedin.com/in/julius-kinyua
+- **Twitter(X)**: https://x.com/Juliuskczar
+- **Website**: https://lyonec.com/
+
+
 # Project Overview
 
 SyriaTel, a telecommunications company, is concerned about customer churn, where customers stop using their services. To address this, the company has gathered data on customer behavior to identify those likely to leave and implement strategies to retain them, as losing customers is costly.
