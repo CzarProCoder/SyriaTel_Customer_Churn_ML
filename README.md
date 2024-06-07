@@ -4,7 +4,12 @@ SyriaTel, a telecommunications company, is concerned about customer churn, where
 
 SyriaTel, a telecommunications company, is concerned about customer churn, where customers stop using their services. To address this, the company has gathered data on customer behavior to identify those likely to leave and implement strategies to retain them, as losing customers is costly.
 
-The term “churn” refers to customers leaving the company, and the current churn rate is approximately 14%. Aiming to reduce this rate to about 7%, the project utilized the provided dataset to address key questions:
+The term “churn” refers to customers leaving the company, and the current churn rate is approximately 14%. Aiming to reduce this rate to about 7%.
+
+![churn](images/churn.png)
+
+
+The project utilized the provided dataset to address key questions:
 
 - Identifying the main features that determine customer churn
 - Uncovering any predictable patterns
