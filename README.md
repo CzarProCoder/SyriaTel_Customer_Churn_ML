@@ -9,7 +9,7 @@
 - **Email**: juliusczar36@gmail.com
 - **Date**: June 2024
 - **Github Link**: https://github.com/CzarProCoder/SyriaTel_Customer_Churn_ML
-- **LinkedIN**: https://www.linkedin.com/in/julius-kinyua
+- **LinkedIn**: https://www.linkedin.com/in/julius-kinyua
 - **Twitter(X)**: https://x.com/Juliuskczar
 - **Website**: https://lyonec.com/
 
