@@ -70,7 +70,7 @@ The dataset contains data on the customers of a Telecom company. Each row repres
 #### Class Imbalance
 This is an imbalanced dataset, with 14.5% of customers lost, balancing will be necessary. 
 
-<p align="center"><img src="Images/Class Imbalance.jpeg" /></p>
+<p align="center"><img src="images/Class Imbalance.jpeg" /></p>
 
 #### There are several correlations worth noting:
 `total_intl_charge`, `total_day_charge`, total_eve_charge`, and `total_night_charge` is perfectly correlated with `total_intl_minutes`, `total_day_minutes`, total_eve_minutes`, and `total_night_minutes` respectively. This makes sense since the company is charging by the minute. 
@@ -82,7 +82,7 @@ In addition, there is a near perfect correlation between `number_vmail_messages`
 Lastly, there are a couple of weak correlations associated with our target `churn` variable; It seems `customer_service_calls`, `international_plan` and `total_day_minutes` have a slight positive correlation with churn. 
 > While weak correlations, we would want to consider including these features in our models.
 
-<p align="center"><img src="Images/Data Exploration Heatmap.jpeg" /></p>
+<p align="center"><img src="images/Data Exploration Heatmap.jpeg" /></p>
 
 ## Data Preperation
 
@@ -117,7 +117,7 @@ For our 3rd model we took a manual approach and redefined the DataFrame criteria
 
 We decided to only include highly correlated variables since we had previously stated there were some features which had extremely high correlations with eachother. For this model we were left with only the features seen below in a heatmap no longer demonstrating any co-linearity.
 
-<p align="center"><img src="Images/Model 3 Heatmap.png"/></p>
+<p align="center"><img src="images/Model 3 Heatmap.png"/></p>
 
 Since tranforming column names applies generally to the dataframe, we did not have to repeat this as it was already complete as the first pre-processing step.
 
@@ -142,19 +142,19 @@ To start, we evaluate a basic `LogisticRegression` model, before applying `SMOTE
 
 **Comparing our first `LogisticRegression` model with our `base`**, we can see that our `LogisticRegression` model does somewhat better at predicting `churn` with a higher True Positive Rate than our `base`.
 
-<p align="center"><img src="Images/Base vs Log.jpeg"></p>
+<p align="center"><img src="images/Base vs Log.jpeg"></p>
 
 To choose the right solver, we run this model with both L1 and L2 solvers. It looks like the Logisic L1 model does better than both previous models but only slightly. However our class imbalance makes it difficult to assess accurately and needs to be addressed.
 
 After applying `SMOTE` with an even 0:1 split, we cross validate our model with the `ModCrossVal` class created to make cross validation an easier process, in which we specify `scoring = 'recall'`. Our model performs nearly the same on the train and test (validation) data. We can probably get this even higher after we simplify our model some more.
 
-<p align="center"><img src="Images/1st Model CV.png"></p>
+<p align="center"><img src="images/1st Model CV.png"></p>
 
 **Finetuning `C` with Cross Validation:** Creating a loop to test out `C` values `[0.0001, 0.001, 0.01, 0.1, 1]` we find that the lowest `C` yields the highest `recall`. 
 
 Our optimized results after finetuning the `C` look pretty good, though slightly less than before optimizing `C`. Once we attempt to simplify some more, we will want to look at other scores such as accuracy and precision to make sure our results are balanced enough for the business problem at hand.
 
-<p align="center"><img src="Images/1st Model CV Optimized.png"></p>
+<p align="center"><img src="images/1st Model CV Optimized.png"></p>
 
 ### 2nd Model
 As prevously stated, we know that there are features that are highly correlated. We use `SelectFromModel` to select features for us that are most important. After additional preprocessing with `SelectFromModel` we run and cross validate using the same `ModCrossVal` class.
@@ -167,9 +167,9 @@ We will use the default threshold to start and identify which features meet thre
 
 Our Logistic Select model did pretty well though It performed around the same as our first Logtistic model after optimization.
 
-<p align="center"><img src="Images/2nd Model CV Optimized.png"></p>
+<p align="center"><img src="images/2nd Model CV Optimized.png"></p>
 
-<p align="center"><img src="Images/Log L1 vs Log Select.png"></p>
+<p align="center"><img src="images/Log L1 vs Log Select.png"></p>
 
 ### 3rd Model
 
@@ -177,7 +177,7 @@ For our final itteration of the LogisticRegression model we should try manual fe
 
 Here we redefined our DataFrame:
 
-<p align="center"><img src="Images/3rd Model DataFrame.png"></p>
+<p align="center"><img src="images/3rd Model DataFrame.png"></p>
 
  **Before finetuning** and after performing a new split and re-applying `SMOTE` to the fresh data, we run our results. Our model performs slightly worse than our previous two.
 
@@ -185,7 +185,7 @@ Here we redefined our DataFrame:
 
 We get a pretty good recall score after optimizing! We will definitely want to make sure we balance accuracy within our decision making process. All in all, it seems like our manual feature selection yields the best recall.
 
-<p align="center"><img src="Images/3rd Model CV Optimized.png"></p>
+<p align="center"><img src="images/3rd Model CV Optimized.png"></p>
 
 ### Compare Optimized Logistic Models on Train Data
 
@@ -193,7 +193,7 @@ Comparing confusion matrices of all 3 `LogisticRegression` models, our most rece
 
 This can provide valuable intervention insights to our stakeholders given a strategic approach to address the high amount False Positives (customers appearing to potentially churn but actually end up retained).
 
-<p align="center"><img src="Images/Logistic Model Comparison.png"></p>
+<p align="center"><img src="images/Logistic Model Comparison.png"></p>
 
 ### Run Final Models on Test
 
@@ -201,7 +201,7 @@ We will now run our models with test data and evaluate each classification repor
 
 However, we can also clearly see that all of our `LogisticRegression` models are underfitting to our training data resulting in a higher recall score when running our test data. We may want to try to run a `DecisionTreeClassifier` to balance this detriment.
 
-<p align="center"><img src="Images/Classification Report.png"></p>
+<p align="center"><img src="images/Classification Report.png"></p>
 
 ### 4th Model
 
@@ -209,15 +209,15 @@ As stated, we will now construct and run a `DecisionTreeClassifier` on the datas
 
 Our results look great! These recall scores are the highest we've seen, even after optimizing the other models. We are also not seeing any overfitting or underfitting since both train and test(validation) scores are balanced. Although, this was also the case with our other models so we have to run the test to be certain that this model doesn't pose the same issue.
 
-<p align="center"><img src="Images/Tree_Score_Summary.png"></p>
+<p align="center"><img src="images/Tree_Score_Summary.png"></p>
 
 **Run Final Model on Test:**
 
 To confirm that our train data is not underfitting we now run the `DecisionTreeClassifier` on our test data. Our results look good! Our recall on the test is slighly lower than on the train but overall they look balanced. Our `DecisionTreeCassifier` model has outperformed all of our `LogisticRegression`
 
-<p align="center"><img src="Images/Tree_Classification_Report.png"></p>
+<p align="center"><img src="images/Tree_Classification_Report.png"></p>
 
-<p align="center"><img src="Images/Decision_Tree.png"></p>
+<p align="center"><img src="images/Decision_Tree.png"></p>
 
 
 ## Final Evaluation & Conclusion
