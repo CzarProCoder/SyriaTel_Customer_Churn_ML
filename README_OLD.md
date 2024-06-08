@@ -1,58 +1,18 @@
-# SyriaTel Customer Churn ML Project
+# SyriaTel: Know Your Customer
 
-![customer_churn_prediction](images/customer_churn_prediction.png)
+### David Johnson and Elina Rankova
 
+  <p align="center"><img src="https://media.licdn.com/dms/image/C4D12AQH-Qk_eTZv6iA/article-cover_image-shrink_720_1280/0/1622638706496?e=1715212800&v=beta&t=a3k-gWfqrlzfv7inhVBpUU9xxPjnJ0of4viF4tFu-Oc" width="720" height="450" style="margin: 0 auto;"/></p>
 
-**Project by**:
+<u>image source</u>: <a href="https://www.linkedin.com/pulse/churn-analysis-smriti-saini/">Churn Analysis Article</a>
 
-- **Name**:  Julius Kinyua Njeri
-- **Email**: juliusczar36@gmail.com
-- **Date**: June 2024
-- **Github Link**: https://github.com/CzarProCoder/SyriaTel_Customer_Churn_ML
-- **LinkedIn**: https://www.linkedin.com/in/julius-kinyua
-- **Twitter(X)**: https://x.com/Juliuskczar
-- **Website**: https://lyonec.com/
+## Business Problem and Understanding
 
+**Stakeholders:** Director of Member Operations, Member Operations Manager, Member Retention Manager, Member Support Manager
 
-# Project Overview
+The business problem at hand is to predict customer churn for SyriaTel, a telecommunications company, in order to minimize revenue loss and enhance customer retention efforts. With customer attrition posing a significant challenge to profitability in the telecom industry, SyriaTel seeks to identify patterns and trends within its customer base that indicate potential churn. By leveraging historical data and predictive modeling techniques, the aim is to develop a classifier that can accurately forecast which customers are likely to discontinue their services, enabling SyriaTel to implement targeted retention strategies and ultimately strengthen its competitive position in the market.
 
-SyriaTel, a telecommunications company, is concerned about customer churn, where customers stop using their services. To address this, the company has gathered data on customer behavior to identify those likely to leave and implement strategies to retain them, as losing customers is costly.
-
-SyriaTel, a telecommunications company, is concerned about customer churn, where customers stop using their services. To address this, the company has gathered data on customer behavior to identify those likely to leave and implement strategies to retain them, as losing customers is costly.
-
-The term “**churn**” refers to customers leaving the company, and the current churn rate is approximately 14%. Aiming to reduce this rate to about 7%.
-
-![churn](images/churn.png)
-
-
-The project utilized the provided dataset to address key questions:
-
-- Identifying the main features that determine customer churn
-- Uncovering any predictable patterns
-- Exploring how SyriaTel can leverage these insights to implement cost-effective solutions.
-
-The project aims to develop a classification model to predict customer churn using machine learning techniques. Following the CRISP-DM methodology, the project involves six stages: Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, and Deployment. By analyzing the dataset, we aim to uncover patterns and factors driving customer churn and create a predictive model to help reduce customer attrition.
-
-# I: Business Understanding
-
-**Problem Statement**
-
-SyriaTel, a telecommunications company, is experiencing high customer churn as many customers switch to competitors. To address this, the company aims to develop a churn prediction model to identify factors associated with churn and improve customer retention, ultimately boosting profitability.
-
-**Objectives and Success Metrics**
-
-The project aims to:
-
-- Identify key factors leading to customer churn.
-- Develop an accurate churn prediction model.
-- Implement strategies to retain at-risk customers.
-
-Success will be measured by:
-
-- Achieving a recall score of 0.8 with the prediction model.
-- Identifying significant features contributing to churn.
-- Providing actionable recommendations to reduce churn and enhance retention.
-- Demonstrating the value of proactive retention strategies in reducing revenue losses.
+**The goal:** Create a model to predict churn in telecom members contacting support. We are aiming to reduce the amount of cases in which members are mistakenly identified as retained (false negative) vs mistakenly identified as churned to ensure we capture all members who may churn (positive).
 
 ## Data Understanding and Exploration
 
@@ -249,3 +209,16 @@ In <ins>_Phase 2_</ins> of the business initiative, when looking to optimize our
 We would also recommend gathering additional data to account for class imbalance and revising which feature hold importance in relation to churn. Obtaining a larger dataset will also help resolve the underfitting issues we saw in our `LogisticRegression` models.
 
 By simplifying the data before modeling, we are more likely to yield positive results and open up options to combine models using the same training data for a more balanced learning mechanism.
+
+
+## Repository Structure
+
+```
+├── Data
+├── Images
+├── Scratch Work
+├── .gitignore
+├── SyriaTel_Churn_Final_Notebook.ipynb
+├── README.md
+└── Know_Your_Customer_Presentation.pdf
+```
